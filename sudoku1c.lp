@@ -12,8 +12,8 @@ subgrid(X,Y,G) :- X=1..n*n, Y=1..n*n, G=1+(((X-1)/n)*n+(Y-1)/n).
 { sudoku(X,Y,N) : N=1..n*n } = 1 :- X=1..n*n, Y=1..n*n.
 
 sudoku(X,Y,N) :- initial(X,Y,N).
-:- sudoku(X,Y,N), sudoku(X',Y,N'), X != X', N == N'.
-:- sudoku(X,Y,N), sudoku(X,Y',N'), Y != Y', N == N'.
+:- sudoku(X,Y,N), sudoku(X',Y,N), X != X'.
+:- sudoku(X,Y,N), sudoku(X,Y',N), Y != Y'.
 :- sudoku(X,Y,N), sudoku(X',Y',N), subgrid(X,Y,G), subgrid(X',Y',G), X != X', Y != Y'.
 
 #show sudoku/3.
